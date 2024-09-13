@@ -10,6 +10,7 @@ import lombok.Data;
 @Entity
 @Data
 public class Account {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,8 +23,11 @@ public class Account {
     @Email(message = "Email should be valid")
     private String email;
 
-    @NotBlank(message = "Password is mandatory")
-    @Size(min = 8, message = "Password must be at least 8 characters long")
-    @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "Password must contain only alphabets and numbers")
+    // @NotBlank(message = "Password is mandatory")
+    // @Size(min = 8, message = "Password must be at least 8 characters long")
+    // @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "Password must contain only alphabets and numbers")
+    // private String password;
+    @Column(nullable = false)
+    // @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "Password must contain only alphabets and numbers")
     private String password;
 }

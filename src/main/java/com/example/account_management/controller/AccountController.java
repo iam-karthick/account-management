@@ -4,6 +4,7 @@ import com.example.account_management.entity.Account;
 import com.example.account_management.service.AccountService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/accounts")
+// @CrossOrigin(origins = "http://localhost:3000") // Update this URL based on your frontend setup
 public class AccountController {
 
     @Autowired
@@ -51,5 +53,15 @@ public class AccountController {
     public ResponseEntity<Void> deleteAccount(@PathVariable Long id) {
         accountService.deleteAccount(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Account> login(@RequestBody Account loginRequest) {
+        try {
+            Account authenticatedAccount = accountService.authenticate(loginRequest.getEmail(), loginRequest.getPassword());
+            return ResponseEntity.ok(authenticatedAccount);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
     }
 }
