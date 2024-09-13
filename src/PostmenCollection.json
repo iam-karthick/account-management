@@ -1,0 +1,175 @@
+{
+    "info": {
+      "name": "Account Management API",
+      "description": "Collection of API requests for managing user accounts.",
+      "version": "1.0.0"
+    },
+    "item": [
+      {
+        "name": "Create Account",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "Content type of the request body."
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8080/api/accounts",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "accounts"
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": JSON.stringify({
+              "name": "John Doe",
+              "email": "user@example.com",
+              "password": "password123"
+            })
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Login",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "Content type of the request body."
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8080/api/accounts/login",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "accounts",
+              "login"
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": JSON.stringify({
+              "email": "user@example.com",
+              "password": "password123"
+            })
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get All Accounts",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/accounts",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "accounts"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Account by ID",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/accounts/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "accounts",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update Account",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "Content type of the request body."
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8080/api/accounts/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "accounts",
+              "1"
+            ]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": JSON.stringify({
+              "name": "Jane Doe",
+              "email": "user@example.com",
+              "password": "newpassword123"
+            })
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Delete Account",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8080/api/accounts/1",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8080",
+            "path": [
+              "api",
+              "accounts",
+              "1"
+            ]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  
