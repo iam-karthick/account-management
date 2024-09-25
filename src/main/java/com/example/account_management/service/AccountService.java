@@ -30,6 +30,9 @@ public class AccountService {
     public Account getAccountById(Long id) {
         return accountRepository.findById(id).orElse(null);
     }
+    public Account getAccountByName(String name) {
+        return accountRepository.findByEmail(name).orElse(null);
+    }
 
     public Account updateAccount(Long id, Account accountDetails) {
         Optional<Account> accountOptional = accountRepository.findById(id);
